@@ -1,0 +1,35 @@
+{
+  "name": "BrookPlugin",
+  "version": "0.0.1",
+  "description": "An Android Cordova plugin that allows users to connect with CarTrackPlugIn.",
+  "cordova": {
+    "id": "cordova-plugin-CarTrack",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KittiponSphere/BrookCarTrack.git"
+  },
+  "keywords": [
+    "Toast",
+    "Notification",
+    "Message",
+    "Alert",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Kittipon <kittipon.tae@spheresoftsolutions.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KittiponSphere/BrookCarTrack/issues"
+  },
+  "homepage": "https://github.com/KittiponSphere/BrookCarTrack/"
+}
