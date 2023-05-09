@@ -19,7 +19,14 @@
             <feature name="BrookCarTrack">
                 <param name="android-package" value="com.stanleyidesis.cordova.plugin.BrookCarTrack"/>
             </feature>
+			<preference name="android-minSdkVersion" value="23" />
         </config-file>
         <source-file src="src/android/BrookCarTrack.java" target-dir="src/com/stanleyidesis/cordova/plugin" />
+		 <source-file src="src/android/PermissionManager.java" target-dir="src/com/stanleyidesis/cordova/plugin" />
+		
+		
+		<framework src="src/android/yourFile.gradle" custom="true" type="gradleReference" />
+		<resource-file src="ARR/blesdk-release_v3.0.aar" target="../../libs/blesdk-release_v3.0.aar" />
+		
     </platform>
 </plugin>
