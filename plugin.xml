@@ -21,6 +21,14 @@
             </feature>
 			<preference name="android-minSdkVersion" value="23" />
         </config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+		<uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+		</config-file>
+		
+		
         <source-file src="src/android/BrookCarTrack.java" target-dir="src/com/stanleyidesis/cordova/plugin" />
 		 <source-file src="src/android/PermissionManager.java" target-dir="src/com/stanleyidesis/cordova/plugin" />
 		

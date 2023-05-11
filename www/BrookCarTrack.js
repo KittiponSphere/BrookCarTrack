@@ -11,24 +11,21 @@ BrookCarTrack.prototype.show = function(message, duration, successCallback, erro
   cordova.exec(successCallback, errorCallback, 'BrookCarTrack', 'show', [options]);
 };
 
-BrookCarTrack.prototype.CreateBle = function(message, duration, successCallback, errorCallback) {
+BrookCarTrack.prototype.CreateBle = function(terminalID, successCallback, errorCallback) {
   var options = {};
-  options.message = message;
-  options.duration = duration;
+  options.terminalID = terminalID;
   cordova.exec(successCallback, errorCallback, 'BrookCarTrack', 'CreateBle', [options]);
 };
 
-BrookCarTrack.prototype.saveKey = function(message, duration, successCallback, errorCallback) {
+BrookCarTrack.prototype.saveKey = function(key, successCallback, errorCallback) {
   var options = {};
-  options.message = message;
-  options.duration = duration;
+  options.key = key;
   cordova.exec(successCallback, errorCallback, 'BrookCarTrack', 'saveKey', [options]);
 };
 
-BrookCarTrack.prototype.connect = function(message, duration, successCallback, errorCallback) {
+BrookCarTrack.prototype.connect = function(terminalID, successCallback, errorCallback) {
   var options = {};
-  options.message = message;
-  options.duration = duration;
+  options.terminalID = terminalID;
   cordova.exec(successCallback, errorCallback, 'BrookCarTrack', 'connect', [options]);
 };
 

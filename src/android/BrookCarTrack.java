@@ -18,25 +18,8 @@ import com.cartrack.blesdk.enumerations.*;
 public class BrookCarTrack extends CordovaPlugin {
   private static final String DURATION_LONG = "long";
   private BleTerminal bleTerminal;
-  //private BleService bleService;
-    //private  ProgressDialog progressDialog;
-    private  PermissionManager permissionManager;
+  private  PermissionManager permissionManager;
 
-
-    //public BrookCarTrack(Bundle savedInstanceState)
-    //{
-
-        //progressDialog =  new ProgressDialog(cordova.getContext());
-        //permissionManager =new PermissionManager();
-        //permissionManager.requestPermission();
-
-        //String lastUsedTerminalId = getSharedPreferences().getString(LAST_USED_TERMINAL_ID, "");
-        //et_terminal_id.setText(lastUsedTerminalId);
-
-        //val scanTimeoutDuration = getSharedPreferences().getString(SCAN_TIMER_DURATION, "10");
-        //et_scan_duration.setText(scanTimeoutDuration);
-
-    //}
   @Override
   public boolean execute(String action, JSONArray args,
     final CallbackContext callbackContext) {
@@ -67,37 +50,48 @@ public class BrookCarTrack extends CordovaPlugin {
       }
       else if(action.equals("CreateBle"))
       {
-
-
-
-          configBle("TEST");
-
-          showToast("CreateBle1234");
-
+		  
+		  
+		  String terminalID;
+          try {
+              JSONObject options = args.getJSONObject(0);
+              terminalID = options.getString("terminalID");
+          } catch (JSONException e) {
+              callbackContext.error("Error encountered: " + e.getMessage());
+              return false;
+          }
+		  
+          configBle(terminalID);
           getAuthKey();
-
-
-
-
-
+		  showToast("CreateBle");
+		  
           return true;
       }
       else if(action.equals("saveKey"))
       {
-
-
-          saveAuthKey("9555DBDC5DC124423A82D3D691DD31BD5123C103EC4118343B61E4796569637B");
-          //configBle();
-          //getAuthKey();
+		  String key;
+          try {
+              JSONObject options = args.getJSONObject(0);
+              key = options.getString("key");
+          } catch (JSONException e) {
+              callbackContext.error("Error encountered: " + e.getMessage());
+              return false;
+          }
+          saveAuthKey(key);
           showToast("saveKey success");
-
-
-
           return true;
       }
       else if (action.equals("connect")) {
 
-          connect("TEST");
+		  String terminalID;
+          try {
+              JSONObject options = args.getJSONObject(0);
+              terminalID = options.getString("terminalID");
+          } catch (JSONException e) {
+              callbackContext.error("Error encountered: " + e.getMessage());
+              return false;
+          }
+          connect(terminalID);
 
           return true;
       }
@@ -129,8 +123,7 @@ public class BrookCarTrack extends CordovaPlugin {
               callbackContext.error("Error encountered: " + e.getMessage());
               return false;
           }
-
-
+		  
           configBle(terminalID);
           getAuthKey();
           saveAuthKey(key);
@@ -222,10 +215,7 @@ public class BrookCarTrack extends CordovaPlugin {
 
     private boolean configBle(String TerminalID)
     {
-        //BleService(cordova.getContext());
-        //BleService.configure();
         BleService.Companion.clear();
-       // BleService.Companion.configure(this.webView.getContext());
         BleService.Companion.configure(this.cordova.getContext());
 
         if (bleTerminal == null) {
@@ -247,13 +237,9 @@ public class BrookCarTrack extends CordovaPlugin {
 
     private void connect(String TerminalID)
     {
-		showToast("1");
         bleTerminal = BleService.Companion.getTerminal(TerminalID);
-		showToast("2");
         bleTerminal.setBleListener(bleListener);
-		showToast("3");
         bleTerminal.scanAndConnectToPeripheral(100000);
-		showToast("4");
     }
     private void lock()
     {
