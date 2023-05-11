@@ -72,7 +72,7 @@ public class BrookCarTrack extends CordovaPlugin {
 
           configBle("TEST");
 
-          showToast("CreateBle");
+          showToast("CreateBle1234");
 
           getAuthKey();
 
