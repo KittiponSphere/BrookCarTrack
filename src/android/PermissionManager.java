@@ -15,7 +15,7 @@ public class PermissionManager {
         add(Manifest.permission.ACCESS_COARSE_LOCATION);
         add(Manifest.permission.BLUETOOTH);
         add(Manifest.permission.BLUETOOTH_ADMIN);
-        add(Manifest.permission.BLUETOOTH_PRIVILEGED);
+        //add(Manifest.permission.BLUETOOTH_PRIVILEGED);
         add(Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS);
     }};
 
