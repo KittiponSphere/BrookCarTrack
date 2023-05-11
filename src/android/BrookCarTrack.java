@@ -247,9 +247,13 @@ public class BrookCarTrack extends CordovaPlugin {
 
     private void connect(String TerminalID)
     {
+		showToast("1");
         bleTerminal = BleService.Companion.getTerminal(TerminalID);
+		showToast("2");
         bleTerminal.setBleListener(bleListener);
+		showToast("3");
         bleTerminal.scanAndConnectToPeripheral(100000);
+		showToast("4");
     }
     private void lock()
     {
